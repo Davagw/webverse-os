@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b19">
+  <title>WEBVERSE OS | Danah Alshahri</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body data-theme="dark">
+
+  <!-- WELCOME SCREEN -->
+  <div id="bootScreen" class="boot-screen">
+    <div class="boot-logo">&lt;W/&gt;</div>
+    <h1>WEBVERSE OS</h1>
+    <p>INITIALIZING YOUR DIGITAL UNIVERSE...</p>
+    <div class="boot-progress">
+      <div class="boot-progress-bar"></div>
+    </div>
+    <button id="enterBtn" class="primary-btn" type="button">
+      <span data-ar="ادخل عالمي الرقمي"
+            data-en="Enter My Digital World">ادخل عالمي الرقمي</span>
+      <span>↗</span>
+    </button>
+  </div>
+
+  <!-- DESKTOP -->
+  <div id="desktop" class="desktop hidden">
+
+    <header class="topbar">
+      <div class="system-brand">
+        <span class="brand-symbol">✳</span>
+        <strong>WEBVERSE OS</strong>
+      </div>
+
+      <span class="topbar-center"
+            data-ar="عالم دانة الرقمي"
+            data-en="Danah's Digital World">عالم دانة الرقمي</span>
+
+      <div class="system-controls">
+        <button id="languageBtn" class="system-button"
+                type="button" aria-label="Change language">EN</button>
+        <button id="themeBtn" class="system-button"
+                type="button" aria-label="Change theme">☀</button>
+        <span id="systemClock" class="system-clock">00:00</span>
+      </div>
+    </header>
+
+    <main class="desktop-content">
+      <div class="wallpaper-grid"></div>
+      <div class="wallpaper-orb orb-one"></div>
+      <div class="wallpaper-orb orb-two"></div>
+
+      <div class="desktop-intro">
+        <span class="eyebrow">WELCOME TO MY DIGITAL SPACE</span>
+        <h1>WEB<span>VERSE</span><i>.</i></h1>
+        <p data-ar="استكشف عالم تطوير الويب بطريقتك"
+           data-en="Explore web development your way">
+          استكشف عالم تطوير الويب بطريقتك
+        </p>
+        <span class="desktop-hint"
+              data-ar="اضغط على أي تطبيق لتبدأ"
+              data-en="Open an app to get started">
+          اضغط على أي تطبيق لتبدأ
+        </span>
+      </div>
+
+      <div class="desktop-icons">
+        <button class="desktop-app" data-app="about" type="button">
+          <span class="app-icon about-icon">✦</span>
+          <span data-ar="تعرف علي" data-en="About Me">تعرف علي</span>
+        </button>
+
+        <button class="desktop-app" data-app="web" type="button">
+          <span class="app-icon web-icon">◎</span>
+          <span data-ar="عالم الويب" data-en="The Web">عالم الويب</span>
+        </button>
+
+        <button class="desktop-app" data-app="html" type="button">
+          <span class="app-icon html-icon">&lt;/&gt;</span>
+          <span>HTML Lab</span>
+        </button>
+
+        <button class="desktop-app" data-app="css" type="button">
+          <span class="app-icon css-icon">{ }</span>
+          <span>CSS Studio</span>
+        </button>
+
+        <button class="desktop-app" data-app="javascript" type="button">
+          <span class="app-icon js-icon">JS</span>
+          <span>JavaScript Lab</span>
+        </button>
+
+        <button class="desktop-app" data-app="backend" type="button">
+          <span class="app-icon backend-icon">⌘</span>
+          <span>Frontend / Backend</span>
+        </button>
+
+        <button class="desktop-app" data-app="ai" type="button">
+          <span class="app-icon ai-icon">✳</span>
+          <span>AI Credits</span>
+        </button>
+      </div>
+
+      <section id="appWindow" class="app-window hidden"
+               role="dialog" aria-modal="true"
+               aria-labelledby="windowTitle" tabindex="-1">
+        <div class="window-titlebar">
+          <div class="window-controls">
+            <button id="closeWindow" class="window-control"
+                    type="button" aria-label="Close window">×</button>
+          </div>
+          <div class="window-heading">
+            <span id="windowIcon">✦</span>
+            <strong id="windowTitle">Application</strong>
+          </div>
+          <span class="window-decoration">WEBVERSE / APP</span>
+        </div>
+        <div id="windowContent" class="window-content"></div>
+      </section>
+    </main>
+
+    <nav class="dock" aria-label="Application dock">
+      <button class="dock-app" data-app="about" type="button"
+              title="About Me">✦</button>
+      <button class="dock-app" data-app="web" type="button"
+              title="The Web">◎</button>
+      <span class="dock-divider"></span>
+      <button class="dock-app" data-app="html" type="button"
+              title="HTML">&lt;/&gt;</button>
+      <button class="dock-app" data-app="css" type="button"
+              title="CSS">{ }</button>
+      <button class="dock-app" data-app="javascript" type="button"
+              title="JavaScript">JS</button>
+      <span class="dock-divider"></span>
+      <button class="dock-app" data-app="backend" type="button"
+              title="Frontend and Backend">⌘</button>
+      <button class="dock-app" data-app="ai" type="button"
+              title="AI Credits">✳</button>
+    </nav>
+
+    <footer class="desktop-footer">
+      <span>CREATED BY DANAH ALSHAHRI</span>
+      <span>© 2026 WEBVERSE OS</span>
+    </footer>
+  </div>
+
+  <!-- ABOUT ME -->
+  <template id="aboutTemplate">
+    <div class="app-page">
+      <div class="profile-banner">
+        <div class="profile-letter">D.</div>
+        <div>
+          <span class="eyebrow">MEET THE CREATOR</span>
+          <h2 data-ar="دانة الشهري"
+              data-en="Danah Alshahri">دانة الشهري</h2>
+          <p>WEB DEVELOPMENT ENTHUSIAST</p>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <h3 data-ar="مرحبًا بعالمي"
+            data-en="Welcome to My World">مرحبًا بعالمي</h3>
+        <p data-ar="أنا دانة الشهري، مهتمة بتطوير الويب وتصميم التجارب الرقمية التفاعلية. أتطلع إلى تطوير مهاراتي في Full-Stack Development، والتعمق في UI/UX Design، وبناء مواقع تجمع بين الإبداع وسهولة الاستخدام."
+           data-en="I'm Danah Alshahri, interested in web development and interactive digital experiences. I aim to develop my Full-Stack Development skills, explore UI/UX Design, and build creative, user-friendly websites.">
+          أنا دانة الشهري، مهتمة بتطوير الويب وتصميم التجارب الرقمية التفاعلية. أتطلع إلى تطوير مهاراتي في Full-Stack Development، والتعمق في UI/UX Design، وبناء مواقع تجمع بين الإبداع وسهولة الاستخدام.
+        </p>
+      </div>
+
+      <div class="skill-tags">
+        <span>WEB DEVELOPMENT</span>
+        <span>FULL STACK</span>
+        <span>UI/UX DESIGN</span>
+      </div>
+    </div>
+  </template>
+
+  <!-- WEB -->
+  <template id="webTemplate">
+    <div class="app-page">
+      <span class="eyebrow">NETWORK EXPLORER</span>
+      <h2 data-ar="كيف يعمل الويب؟"
+          data-en="How Does the Web Work?">كيف يعمل الويب؟</h2>
+
+      <p data-ar="الويب شبكة من صفحات ومواقع مترابطة نصل إليها عبر الإنترنت. عندما تكتب عنوان موقع، يرسل المتصفح طلبًا إلى الخادم. يعالج الخادم الطلب ويعيد الملفات أو البيانات، ثم يعرض المتصفح الصفحة."
+         data-en="The Web is a collection of interconnected pages and websites accessed through the internet. When you enter a website address, your browser sends a request to a server. The server returns files or data, and the browser displays the page.">
+        الويب شبكة من صفحات ومواقع مترابطة نصل إليها عبر الإنترنت. عندما تكتب عنوان موقع، يرسل المتصفح طلبًا إلى الخادم. يعالج الخادم الطلب ويعيد الملفات أو البيانات، ثم يعرض المتصفح الصفحة.
+      </p>
+
+      <div class="network-map">
+        <div class="network-node" id="networkUser">
+          <span>👤</span>
+          <strong data-ar="المستخدم" data-en="User">المستخدم</strong>
+        </div>
+        <div class="network-line"></div>
+        <div class="network-node" id="networkBrowser">
+          <span>🌐</span>
+          <strong data-ar="المتصفح" data-en="Browser">المتصفح</strong>
+        </div>
+        <div class="network-line"></div>
+        <div class="network-node" id="networkServer">
+          <span>🖥</span>
+          <strong data-ar="الخادم" data-en="Server">الخادم</strong>
+        </div>
+      </div>
+
+      <button id="simulateRequest" class="primary-btn" type="button"
+              data-ar="شغّل محاكاة الطلب"
+              data-en="Simulate a Request">شغّل محاكاة الطلب</button>
+
+      <p id="networkStatus" class="simulation-status"
+         aria-live="polite"
+         data-ar="جاهز لإرسال الطلب"
+         data-en="Ready to send a request">جاهز لإرسال الطلب</p>
+    </div>
+  </template>
+
+  <!-- HTML LAB -->
+  <template id="htmlTemplate">
+    <div class="app-page">
+      <span class="eyebrow">HTML LAB / STRUCTURE</span>
+      <h2 data-ar="ابنِ هيكل صفحتك"
+          data-en="Build Your Page Structure">ابنِ هيكل صفحتك</h2>
+
+      <p data-ar="HTML اختصار HyperText Markup Language، وهي لغة ترميز تبني هيكل الصفحة وتنظم المحتوى مثل العناوين والفقرات والأزرار. عدّل الكود وشاهد النتيجة."
+         data-en="HTML stands for HyperText Markup Language. It structures page content such as headings, paragraphs, and buttons. Edit the code and see the result.">
+        HTML اختصار HyperText Markup Language، وهي لغة ترميز تبني هيكل الصفحة وتنظم المحتوى مثل العناوين والفقرات والأزرار. عدّل الكود وشاهد النتيجة.
+      </p>
+
+      <div class="lab-layout">
+        <div class="lab-editor">
+          <div class="lab-label">index.html</div>
+          <textarea id="htmlCode" spellcheck="false"
+                    aria-label="HTML code">&lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;p&gt;I built my first web page.&lt;/p&gt;
+&lt;button&gt;Explore&lt;/button&gt;</textarea>
+        </div>
+
+        <div class="lab-preview">
+          <div class="lab-label">LIVE PREVIEW</div>
+          <iframe id="htmlPreview" title="HTML preview"
+                  sandbox=""></iframe>
+        </div>
+      </div>
+
+      <button id="runHtml" class="primary-btn" type="button"
+              data-ar="اعرض النتيجة"
+              data-en="Run HTML">اعرض النتيجة</button>
+    </div>
+  </template>
+
+  <!-- CSS STUDIO -->
+  <template id="cssTemplate">
+    <div class="app-page">
+      <span class="eyebrow">CSS STUDIO / STYLE</span>
+      <h2 data-ar="صمّم بطريقتك"
+          data-en="Design It Your Way">صمّم بطريقتك</h2>
+
+      <p data-ar="CSS اختصار Cascading Style Sheets، وهي المسؤولة عن الألوان والخطوط والمسافات وتنسيق الصفحة. غيّر الإعدادات وقارن بين العنصر قبل CSS وبعده."
+         data-en="CSS stands for Cascading Style Sheets. It controls colors, fonts, spacing, and layout. Change the settings and compare the element before and after CSS.">
+        CSS اختصار Cascading Style Sheets، وهي المسؤولة عن الألوان والخطوط والمسافات وتنسيق الصفحة. غيّر الإعدادات وقارن بين العنصر قبل CSS وبعده.
+      </p>
+
+      <div class="css-studio">
+        <div class="style-controls">
+          <label for="backgroundColor"
+                 data-ar="لون الخلفية"
+                 data-en="Background Color">لون الخلفية</label>
+          <input type="color" id="backgroundColor" value="#7656d8">
+
+          <label for="textColor"
+                 data-ar="لون النص"
+                 data-en="Text Color">لون النص</label>
+          <input type="color" id="textColor" value="#ffffff">
+
+          <label for="borderRadius"
+                 data-ar="استدارة الحواف"
+                 data-en="Border Radius">استدارة الحواف</label>
+          <input type="range" id="borderRadius"
+                 min="0" max="50" value="20">
+        </div>
+
+        <div class="css-preview-area">
+          <div class="comparison-container">
+            <div class="comparison-item">
+              <span class="comparison-label"
+                    data-ar="قبل CSS"
+                    data-en="Before CSS">قبل CSS</span>
+              <div class="before-card">
+                <h3>Hello CSS!</h3>
+                <p>Style me your way.</p>
+              </div>
+            </div>
+
+            <div class="comparison-item">
+              <span class="comparison-label"
+                    data-ar="بعد CSS"
+                    data-en="After CSS">بعد CSS</span>
+              <div id="cssDemoCard" class="css-demo-card">
+                <h3>Hello CSS!</h3>
+                <p>Style me your way.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <pre class="code-output"><code id="cssGeneratedCode"></code></pre>
+    </div>
+  </template>
+
+  <!-- JAVASCRIPT LAB -->
+  <template id="javascriptTemplate">
+    <div class="app-page">
+      <span class="eyebrow">JAVASCRIPT LAB / INTERACTION</span>
+      <h2 data-ar="أعطِ صفحتك حياة"
+          data-en="Bring Your Page to Life">أعطِ صفحتك حياة</h2>
+
+      <p data-ar="JavaScript لغة برمجة تضيف التفاعل إلى الصفحة. جرّب الزر ولاحظ كيف يتغير النص ولون العنصر عند الضغط."
+         data-en="JavaScript adds interactivity to web pages. Try the button and see how a click changes the text and the element's appearance.">
+        JavaScript لغة برمجة تضيف التفاعل إلى الصفحة. جرّب الزر ولاحظ كيف يتغير النص ولون العنصر عند الضغط.
+      </p>
+
+      <div class="javascript-demo">
+        <div id="jsInteractiveBox" class="js-interactive-box">
+          <span id="jsDemoText">HELLO JAVASCRIPT</span>
+        </div>
+
+        <button id="jsActionBtn" class="primary-btn" type="button"
+                data-ar="اضغط وشاهد التغيير"
+                data-en="Click to See the Change">
+          اضغط وشاهد التغيير
+        </button>
+      </div>
+
+      <pre class="code-output"><code>const button = document.querySelector("#jsActionBtn");
+const box = document.querySelector("#jsInteractiveBox");
+const text = document.querySelector("#jsDemoText");
+
+button.addEventListener("click", () => {
+  box.classList.toggle("changed");
+
+  text.textContent = box.classList.contains("changed")
+    ? "YOU DID IT!"
+    : "HELLO JAVASCRIPT";
+});</code></pre>
+
+      <p class="simulation-note"
+         data-ar="المثال يوضح المبدأ نفسه، والتجربة الفعلية تدعم تغيير اللغة أيضًا."
+         data-en="The example demonstrates the same concept; the live demo also supports language switching.">
+        المثال يوضح المبدأ نفسه، والتجربة الفعلية تدعم تغيير اللغة أيضًا.
+      </p>
+    </div>
+  </template>
+
+  <!-- FRONTEND VS BACKEND -->
+  <template id="backendTemplate">
+    <div class="app-page">
+      <span class="eyebrow">BEHIND THE SCENES</span>
+      <h2>Frontend vs Backend</h2>
+
+      <p data-ar="في المتجر الإلكتروني، الـ Frontend هو ما يراه العميل ويتفاعل معه مثل المنتجات والأزرار. أما الـ Backend فيعالج الطلبات ويتعامل مع البيانات. جرّب إضافة منتج للسلة لتشاهد محاكاة العملية."
+         data-en="In an online store, the frontend is what customers see and interact with, such as products and buttons. The backend processes requests and handles data. Add an item to the cart to simulate the process.">
+        في المتجر الإلكتروني، الـ Frontend هو ما يراه العميل ويتفاعل معه مثل المنتجات والأزرار. أما الـ Backend فيعالج الطلبات ويتعامل مع البيانات. جرّب إضافة منتج للسلة لتشاهد محاكاة العملية.
+      </p>
+
+      <div class="store-demo">
+        <div class="store-frontend">
+          <span class="eyebrow">FRONTEND</span>
+          <div class="store-product">
+            <div class="product-visual">⌨</div>
+            <h3>WEBVERSE KEYBOARD</h3>
+            <strong>$49</strong>
+            <button id="buyProduct" class="primary-btn" type="button"
+                    data-ar="أضف للسلة"
+                    data-en="Add to Cart">أضف للسلة</button>
+          </div>
+        </div>
+
+        <div class="store-backend">
+          <span class="eyebrow">BACKEND SIMULATION</span>
+          <div class="terminal-screen">
+            <p>&gt; SERVER SIMULATION READY</p>
+            <pre id="orderLog" aria-live="polite">&gt; Waiting for request...</pre>
+          </div>
+        </div>
+      </div>
+
+      <p class="simulation-note"
+         data-ar="هذه محاكاة تعليمية باستخدام JavaScript، وليست خادمًا أو قاعدة بيانات حقيقية."
+         data-en="This is an educational JavaScript simulation, not a real server or database.">
+        هذه محاكاة تعليمية باستخدام JavaScript، وليست خادمًا أو قاعدة بيانات حقيقية.
+      </p>
+    </div>
+  </template>
+
+  <!-- AI CREDITS -->
+  <template id="aiTemplate">
+    <div class="app-page ai-page">
+      <div class="ai-large-icon">✳</div>
+      <span class="eyebrow">HOW AI HELPED ME</span>
+      <h2 data-ar="كيف ساعدني الذكاء الاصطناعي؟"
+          data-en="How AI Helped Me">كيف ساعدني الذكاء الاصطناعي؟</h2>
+      <p data-ar="استعنت بأداة ChatGPT للمساعدة في بناء الأكواد البرمجية للموقع وتصحيح الأخطاء التي ظهرت أثناء تطويره."
+         data-en="I used ChatGPT to help build the website's code and correct coding errors encountered during development.">
+        استعنت بأداة ChatGPT للمساعدة في بناء الأكواد البرمجية للموقع وتصحيح الأخطاء التي ظهرت أثناء تطويره.
+      </p>
+    </div>
+  </template>
+
+</body>
+</html>
